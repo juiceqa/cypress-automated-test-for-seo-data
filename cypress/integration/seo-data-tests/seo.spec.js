@@ -3,7 +3,7 @@
 
 let urls = []
 
-describe("testing the image paths for each page on trudhesa.com", function() {
+describe("testing meta tags and values for each page on trudhesa.com", function() {
 
     before(() => {
         cy.request({
