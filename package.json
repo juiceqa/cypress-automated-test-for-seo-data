@@ -1,14 +1,19 @@
 {
-  "name": "automated-tests-for-seo-data",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "cypress open"
-  },
-  "author": "Dimitri Harding",
-  "license": "ISC",
-  "devDependencies": {
-    "cypress": "^8.5.0"
-  }
+    "name": "automated-tests-for-seo-data",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "cypress open",
+        "record": "cypress run --record --headed --key 2b7bfb19-53e9-444d-8404-c3b0f7930cda"
+    },
+    "author": "Dimitri Harding",
+    "license": "ISC",
+    "devDependencies": {
+        "@cypress/snapshot": "^2.1.7",
+        "cypress": "^9.0.0"
+    },
+    "dependencies": {
+        "cypress-plugin-snapshots": "^1.4.4"
+    }
 }

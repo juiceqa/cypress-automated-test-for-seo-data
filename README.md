@@ -22,9 +22,9 @@ Open a new terminal window and run the following
   npx serve
 ```
 
-It should say that it's serving our HTML page on http://localhost:5000
+It should say that it's serving our HTML page on <http://localhost:5000>
 
-## Run the tests and have fun!
+## Run the tests and have fun
 
 ```bash
   npm test
