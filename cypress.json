@@ -3,5 +3,40 @@
     "ignoreTestFiles": [
         "**/__snapshots__/*",
         "**/__image_snapshots__/*"
-    ]
+    ],
+    "watchForFilesChanges": false,
+    "chromeWebSecurity": false,
+    "viewportWidth": 1080,
+    "viewportHeight": 1920,
+    "waitForAnimation": true,
+    "defaultCommandTimeout": 10000,
+    "execTimeout": 60000,
+    "pageLoadTimeout": 60000,
+    "requestTimeout": 150000,
+    "responseTimeout": 150000,
+    "video": true,
+    "failOnStatusCode": false,
+    "nodeVersion": "system",
+    "experimentalStudio": true,
+    "experimentalSessionSupport": true,
+    "modifyObstructiveCode": true,
+    "experimentalDecorators": true,
+    "experimentalFetchPolyfill": true,
+    "videoCompression": 3,
+    "env": {
+        "resolution": [1920, 1080],
+        "cypress-plugin-snapshots": {
+            "updateSnapshots": true,
+            "normalizeJson": false,
+            "screenshotConfig": {
+                "blackout": [],
+                "capture": "fullPage",
+                "clip": null,
+                "disableTimersAndAnimations": true,
+                "log": true,
+                "scale": false,
+                "timeout": 50000
+            }
+        }
+    }
 }
