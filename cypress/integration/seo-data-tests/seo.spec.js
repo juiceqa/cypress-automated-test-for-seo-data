@@ -23,7 +23,7 @@ describe("automated-seo-tests", () => {
                 if ($el.prop("name").length > 0) {
                     const metaName = $el.text();
                     expect($el, metaName).to.have.prop("name").not.contain("undefined")
-                    cy.log($el.prop('name') + ': ' + $el.attr('content'))
+                    cy.writeFile('metaNames.txt', '\n' + $el.prop('name') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
                 }
             })
         })
@@ -42,7 +42,7 @@ describe("automated-seo-tests", () => {
                 if ($el.attr("property").length > 0) {
                     const metaPropertyOg = $el.text();
                     expect($el, metaPropertyOg).to.have.attr("property").not.contain("undefined")
-                    cy.log($el.attr('property') + ': ' + $el.attr('content'))
+                    cy.writeFile('metaNames.txt', '\n' + $el.attr('property') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
                 }
             })
         })
@@ -55,9 +55,6 @@ describe("automated-seo-tests", () => {
             cy.writeFile('meta.json', jsonLD)
             cy.readFile('meta.json').then((json) => {
                 expect(json["@context"]).equal("https://schema.org");
-                expect(json["@type"]).equal("WebSite");
-                expect(json.description).equal("This page provides information to determine whether you will benefit from taking Trudhesa (dihydroergotamine mesylate) nasal spray and how to get a prescription. Please see Important Safety Information, Prescribing Information, including Boxed Warning, and Medication Guide.")
-
                 // Cross referencing SEO data between the page title and the headline
                 // in the jsonLD data, great for dynamic data
                 cy.title().then((currentPageTitle) => {
