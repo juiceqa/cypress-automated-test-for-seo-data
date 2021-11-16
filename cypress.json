@@ -16,7 +16,6 @@
     "responseTimeout": 150000,
     "video": true,
     "failOnStatusCode": false,
-    "nodeVersion": "system",
     "experimentalStudio": true,
     "experimentalSessionSupport": true,
     "modifyObstructiveCode": true,

@@ -27,7 +27,8 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
         urls.forEach((url) => {
 
             cy.log(`testing page: ${url}`)
-            cy.visit(url)
+            cy.visit(url).snapshot(`${url}`)
+            cy.writeFile('metaNames.txt', '\n' + '-----------------' + '\n' + 'page: ' + url + '\n' + '-----------------' + '\n', { flag: 'a+' })
             cy.on('window:confirm', cy.stub().as('confirm'))
             Cypress.on('uncaught:exception', (err, runnable) => {
                 // returning false here prevents Cypress from
@@ -45,7 +46,7 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
                     if ($el.prop("name").length > 0) {
                         const metaName = $el.text();
                         expect($el, metaName).to.have.prop("name").not.contain("undefined")
-                        cy.writeFile('metaNames.txt', '\n' + '-----------------' + '\n' + 'page: ' + url + '\n' + '-----------------' + '\n' + $el.prop('name') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
+                        cy.writeFile('metaNames.txt', '\n' + $el.prop('name') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
                     }
                 })
             })
@@ -56,6 +57,7 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
         urls.forEach((url) => {
             cy.log(`testing page: ${url}`)
             cy.visit(url)
+            cy.writeFile('metaNames.txt', '\n' + '-----------------' + '\n' + 'page: ' + url + '\n' + '-----------------' + '\n', { flag: 'a+' })
             cy.on('window:confirm', cy.stub().as('confirm'))
             Cypress.on('uncaught:exception', (err, runnable) => {
                 // returning false here prevents Cypress from
@@ -72,7 +74,7 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
                     if ($el.attr("property").length > 0) {
                         const metaPropertyOg = $el.text();
                         expect($el, metaPropertyOg).to.have.attr("property").not.contain("undefined")
-                        cy.writeFile('metaNames.txt', '\n' + '-----------------' + '\n' + 'page: ' + url + '\n' + '-----------------' + '\n' + $el.attr('property') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
+                        cy.writeFile('metaNames.txt', '\n' + $el.attr('property') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
                     }
                 })
             })
@@ -88,7 +90,8 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
                     // failing the test
                     return false
                 })
-                // Query the script tag with type application/ld+json
+                // Query the script tag with type application/ld+json]
+            cy.wrap("script[type='application/ld+json']").snapshot()
             cy.get("script[type='application/ld+json']").eq(0).then((scriptTag) => {
                 // we need to parse the JSON LD from text to a JSON to easily test it
                 const jsonLD = JSON.parse(scriptTag.text());
