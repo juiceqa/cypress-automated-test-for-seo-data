@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "cypress open",
-        "record": "cypress run --record --headed --key 2b7bfb19-53e9-444d-8404-c3b0f7930cda"
+        "record": "cypress run --record --key 2b7bfb19-53e9-444d-8404-c3b0f7930cda"
     },
     "author": "Dimitri Harding",
     "license": "ISC",
