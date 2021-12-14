@@ -25,9 +25,9 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
 
     it('looks inside the head content for meta name tags', () => {
         urls.forEach((url) => {
-
+            cy.document()
             cy.log(`testing page: ${url}`)
-            cy.visit(url).snapshot(`${url}`)
+            cy.visit(url)
             cy.writeFile('metaNames.txt', '\n' + '-----------------' + '\n' + 'page: ' + url + '\n' + '-----------------' + '\n', { flag: 'a+' })
             cy.on('window:confirm', cy.stub().as('confirm'))
             Cypress.on('uncaught:exception', (err, runnable) => {
@@ -38,12 +38,14 @@ describe("testing meta tags and values for each page on trudhesa.com", function(
             cy.title().should('include', 'Trudhesa')
             cy.get('meta[name]').each($el => {
                 if ($el.prop('content').length > 0) {
+                    cy.get($el).snapshot(`${$el}`)
                     const metaContent = $el.text();
                     expect($el, metaContent).to.have.attr("content").not.contain("undefined")
                 }
             }).then(() => {
                 cy.get('meta[name]').each($el => {
                     if ($el.prop("name").length > 0) {
+                        cy.get($el).snapshot(`${$el}`)
                         const metaName = $el.text();
                         expect($el, metaName).to.have.prop("name").not.contain("undefined")
                         cy.writeFile('metaNames.txt', '\n' + $el.prop('name') + '--> ' + '\n' + $el.attr('content') + '\n', { flag: 'a+' })
