@@ -15,8 +15,24 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cyclope'
 import 'cypress-plugin-snapshots/commands';
+require('cypress-commands');
 
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(function() {
+    cy.intercept('/libs/granite/csrf/*', {
+        method: 'GET',
+        response: {
+            status: 200,
+            body: {
+                "token": "token",
+                "username": "aduhelmhcp",
+                "password": "ga0JB7QQrcYEwyRQoSaR"
+            }
+        }
+    })
+})

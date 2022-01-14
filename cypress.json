@@ -1,5 +1,6 @@
 {
     "projectId": "fnaiut",
+    "baseUrl": "https://aduhelmhcp:ga0JB7QQrcYEwyRQoSaR@bcp-aduhelmhcp.biogen-support.com/",
     "ignoreTestFiles": [
         "**/__snapshots__/*",
         "**/__image_snapshots__/*"

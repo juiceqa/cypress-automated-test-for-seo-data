@@ -11,9 +11,14 @@
     "license": "ISC",
     "devDependencies": {
         "@cypress/snapshot": "^2.1.7",
-        "cypress": "^9.0.0"
+        "cyclope": "^2.0.3",
+        "cypress": "^9.2.0",
+        "lodash": "^4.17.21",
+        "moment": "^2.29.1",
+        "scroll-to-bottomjs": "^1.1.0"
     },
     "dependencies": {
+        "cypress-commands": "^2.0.1",
         "cypress-plugin-snapshots": "^1.4.4"
     }
 }
