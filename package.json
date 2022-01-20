@@ -12,13 +12,18 @@
     "devDependencies": {
         "@cypress/snapshot": "^2.1.7",
         "cyclope": "^2.0.3",
-        "cypress": "^9.2.0",
+        "cypress": "9.3.1",
+        "cypress-commands": "^2.0.1",
+        "cypress-real-events": "^1.6.0",
+        "cypress-wait-until": "^1.7.2",
         "lodash": "^4.17.21",
+        "mochawesome": "^7.0.1",
         "moment": "^2.29.1",
         "scroll-to-bottomjs": "^1.1.0"
     },
     "dependencies": {
-        "cypress-commands": "^2.0.1",
-        "cypress-plugin-snapshots": "^1.4.4"
+        "cypress-plugin-snapshots": "^1.4.4",
+        "cypress-service-client": "^1.2.6",
+        "eslint-plugin-cypress": "^2.12.1"
     }
 }

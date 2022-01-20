@@ -1,10 +1,13 @@
 {
     "projectId": "fnaiut",
-    "baseUrl": "https://aduhelmhcp:ga0JB7QQrcYEwyRQoSaR@bcp-aduhelmhcp.biogen-support.com/",
+    "baseUrl": "https://bcp-aduhelmhcp.biogen-support.com/",
     "ignoreTestFiles": [
         "**/__snapshots__/*",
         "**/__image_snapshots__/*"
     ],
+    "FileServerFolder": ".",
+    "fixturesFolder": false,
+    "includeShadowDom": true,
     "watchForFilesChanges": false,
     "chromeWebSecurity": false,
     "viewportWidth": 1080,
@@ -17,25 +20,28 @@
     "responseTimeout": 150000,
     "video": true,
     "failOnStatusCode": false,
+    "experimentalInteractiveRunEvents": true,
     "experimentalStudio": true,
     "experimentalSessionSupport": true,
     "modifyObstructiveCode": true,
     "experimentalDecorators": true,
     "experimentalFetchPolyfill": true,
     "videoCompression": 3,
-    "env": {
-        "resolution": [1920, 1080],
-        "cypress-plugin-snapshots": {
-            "updateSnapshots": true,
-            "normalizeJson": false,
-            "screenshotConfig": {
-                "blackout": [],
-                "capture": "fullPage",
-                "clip": null,
-                "disableTimersAndAnimations": true,
-                "log": true,
-                "scale": false,
-                "timeout": 50000
+    "resolution": [1920, 1080],
+    "cypress-plugin-snapshots": {
+        "updateSnapshots": true,
+        "normalizeJson": false,
+        "screenshotConfig": {
+            "blackout": [],
+            "capture": "fullPage",
+            "clip": null,
+            "disableTimersAndAnimations": true,
+            "log": true,
+            "scale": false,
+            "timeout": 50000,
+            "env": {
+                "username": "aduhelmhcp",
+                "password": "ga0JB7QQrcYEwyRQoSaR"
             }
         }
     }

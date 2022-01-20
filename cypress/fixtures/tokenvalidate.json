@@ -1,0 +1,10 @@
+{
+    "success": {
+        "id": "1",
+        "username": "Katerra Admin",
+        "email": "admin@Katerra.com",
+        "expires": 1568213166,
+        "tenant": "stg",
+        "isAdmin": true
+    }
+}
