@@ -103,10 +103,10 @@ Cypress.Commands.add('report', (text) => {
     cy.log(comment);
 });
 
-Cypress.Commands.add('getLocalStorage', (key) => {
+/*Cypress.Commands.add('getLocalStorage', (key) => {
     let value = localStorage.getItem(key);
     return value;
-});
+});*/
 
 Cypress.Commands.add('setCookiesOnDomain', (cookies, domain) => {
     cookies.map((cookie) => {
@@ -249,7 +249,7 @@ Cypress.Commands.add('restoreAllCookies', function(handle) {
     cy.log('Done restoring cookies.');
 });
 
-Cypress.Commands.add('saveAllLocalStorage', function(handle) {
+/*Cypress.Commands.add('saveAllLocalStorage', function(handle) {
     cy.log(`Saving all local storage to ${handle}.json ...`).then(() => {
         let allLocal = [];
         const keys = Object.keys(localStorage);
@@ -269,9 +269,9 @@ Cypress.Commands.add('saveAllLocalStorage', function(handle) {
         cy.writeFile(`state/${handle}.json`, { date: utc, allLocal }, 'utf8');
     });
     cy.log('Done saving all local storage.');
-});
+}); */
 
-Cypress.Commands.add('restoreAllLocalStorage', function(handle) {
+/*Cypress.Commands.add('restoreAllLocalStorage', function(handle) {
     cy.log(`Restoring all local storage from ${handle}.json ...`);
     const filename = `state/${handle}.json`;
     const defaultContent = JSON.stringify({ allLocal: [] }); // must be string to match readfilesync
@@ -287,7 +287,7 @@ Cypress.Commands.add('restoreAllLocalStorage', function(handle) {
         }
     });
     cy.log('Done restoring local storage.');
-});
+});*/
 
 Cypress.Commands.add('saveAllSessionStorage', function(handle) {
     cy.log(`Saving all session storage to ${handle}.json ...`).then(() => {
@@ -337,13 +337,13 @@ function fromBase64(text) {
 
 Cypress.Commands.add('saveState', function(handle) {
     cy.saveAllCookies(`${handle}_cookies`);
-    cy.saveAllLocalStorage(`${handle}_localStorage`);
-    cy.saveAllSessionStorage(`${handle}_sessionStorage`);
+    //  cy.saveAllLocalStorage(`${handle}_localStorage`);
+    //  cy.saveAllSessionStorage(`${handle}_sessionStorage`);
 });
 
 Cypress.Commands.add('clearState', function() {
     cy.clearCookies();
-    cy.clearLocalStorage();
+    //   cy.clearLocalStorage();
     cy.clearSessionStorage();
     cy.report('Cleared state.');
 });
@@ -357,7 +357,7 @@ Cypress.Commands.add('clearSessionStorage', function() {
 Cypress.Commands.add('restoreState', function(handle) {
     cy.clearState();
     cy.restoreAllCookies(`${handle}_cookies`);
-    cy.restoreAllLocalStorage(`${handle}_localStorage`);
+    //  cy.restoreAllLocalStorage(`${handle}_localStorage`);
     cy.restoreAllSessionStorage(`${handle}_sessionStorage`);
 });
 
